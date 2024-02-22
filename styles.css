@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #212121;
+}
+.container {
+  position: relative;
+}
+.container .analog-clock {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+.container .analog-clock::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 2;
+}
+.container .analog-clock span {
+  position: absolute;
+  transform: rotate(calc(30deg * var(--i)));
+  inset: 12px;
+  text-align: center;
+  color: #fff;
+}
+.container .analog-clock span b {
+  transform: rotate(calc(-30deg * var(--i)));
+  display: inline-block;
+  font-size: 20px;
+}
+.container .analog-clock .hand {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
+}
+.container .analog-clock .hand i {
+  position: absolute;
+  background: var(--clr);
+  width: 4px;
+  height: var(--h);
+  border-radius: 8px;
+}
+.container .digital-clock {
+  width: 270px;
+  height: 100px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0px 4px rgba(255, 255, 255, 0.2), 0 0 30px rgba(0, 0, 0, 0.9);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container .digital-clock .boxes {
+  width: 30%;
+  color: #fff;
+  position: relative;
+  font-size: 60px;
+  padding: 0 10px;
+  font-style: italic;
+  font-family: 'Digital-7';
+}
+.container .digital-clock .boxes:not(:last-child)::after {
+  content: ":";
+  position: absolute;
+  right: 0;
+  font-style: normal;
+}
